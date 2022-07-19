@@ -9,7 +9,14 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
   return;
 }
 
-void Controller::HandleInput(bool &running, Snake &snake) const {
+void Controller::HandleInput(bool &running, Snake &snake, bool areControlsModified) const {
+
+  auto up = areControlsModified ? Snake::Direction::kDown : Snake::Direction::kUp;
+  auto down = areControlsModified ? Snake::Direction::kUp : Snake::Direction::kDown;
+  auto left = areControlsModified ? Snake::Direction::kRight : Snake::Direction::kLeft;
+  auto right = areControlsModified ? Snake::Direction::kLeft : Snake::Direction::kRight;
+
+
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
@@ -17,23 +24,19 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
     } else if (e.type == SDL_KEYDOWN) {
       switch (e.key.keysym.sym) {
         case SDLK_UP:
-          ChangeDirection(snake, Snake::Direction::kUp,
-                          Snake::Direction::kDown);
+          ChangeDirection(snake, up, down);
           break;
 
         case SDLK_DOWN:
-          ChangeDirection(snake, Snake::Direction::kDown,
-                          Snake::Direction::kUp);
+          ChangeDirection(snake, down, up);
           break;
 
         case SDLK_LEFT:
-          ChangeDirection(snake, Snake::Direction::kLeft,
-                          Snake::Direction::kRight);
+          ChangeDirection(snake, left, right);
           break;
 
         case SDLK_RIGHT:
-          ChangeDirection(snake, Snake::Direction::kRight,
-                          Snake::Direction::kLeft);
+          ChangeDirection(snake, right, left);
           break;
       }
     }
