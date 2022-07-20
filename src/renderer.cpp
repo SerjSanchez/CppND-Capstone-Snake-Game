@@ -87,22 +87,22 @@ void Renderer::selectFoodColorByType(Food::FoodType type) {
   switch (type)
   {
   case Food::FoodType::faster:
-    SDL_SetRenderDrawColor(sdl_renderer, 0xA5, 0x00, 0xA5, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0xA5, 0x00, 0xA5, 0xFF); // Purple
     break;
   case Food::FoodType::slower:
-    SDL_SetRenderDrawColor(sdl_renderer, 0xA5, 0x77, 0xA5, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0xA5, 0x77, 0xA5, 0xFF); // Pink
     break;
   case Food::FoodType::drunk:
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF); // Lime Green
     break;
   case Food::FoodType::shrink:
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xCC, 0xFF, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xCC, 0xFF, 0xFF); // Blue
     break;
     case Food::FoodType::death:
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF); // Red
     break;
   default:
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF); // Yellow
     break;
   }
 }

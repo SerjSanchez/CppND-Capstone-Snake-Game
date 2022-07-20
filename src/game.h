@@ -34,7 +34,8 @@ class Game {
 
   int score{0};
 
-  void PlaceFood(Food::FoodType type);
+  void PlaceFood(); // Places the default food 
+  void PlaceFood(Food::FoodType type); // Places the type of food passed as a parameter
   void Update();
   void ApplyFoodEffects(Food food);
   void CreateRandomNonDefaultFood();

@@ -9,7 +9,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       random_h(0, static_cast<int>(grid_height - 1)),
       random_type(1, 5),
       food_prob(0, 100) {
-  PlaceFood(Food::FoodType::defaultFood);
+  PlaceFood();
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -50,6 +50,10 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       SDL_Delay(target_frame_duration - frame_duration);
     }
   }
+}
+
+void Game::PlaceFood() {
+  PlaceFood(Food::FoodType::defaultFood);
 }
 
 void Game::PlaceFood(Food::FoodType type) {
@@ -140,14 +144,14 @@ void Game::ApplyFoodEffects(Food food) {
     break;
     case Food::FoodType::death:
       // Game over
-      snake.alive = false;
       score -= 5;
+      snake.alive = false;
     break;
   default:
       // Default food, grow snake and increase speed.
       score++;
       // Always place default food when eating one
-      PlaceFood(Food::FoodType::defaultFood);
+      PlaceFood();
       // Grow snake and increase speed.
       snake.GrowBody();
       snake.speed += 0.002;
