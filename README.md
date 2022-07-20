@@ -36,6 +36,12 @@ In this project, you can build your own C++ application or extend this Snake gam
   * Blue: Shrinks the snake by 3 points
   * Red: game over
 
+Custom foods follow some rules: 
+ - They only appear when the snake is longer than 5 points 
+ - Only one of each type can be on the screen at the same time
+ - Each time the snake eats some food, there is a 40% probability of a custom food appearing
+ - The type of food is random
+
 ## Rubric points:
 ## Rubric Points
 
